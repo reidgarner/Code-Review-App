@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import addSnippet from './Components/addSnippet.js';
-import comment from './Components/comment.js';
+import CodeSnippet from './Components/CodeSnippet.js';
+import Comment from './Components/Comment.js';
 
 
 
@@ -10,8 +10,8 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <addSnippet />
-        <comment />
+        <CodeSnippet />
+        <Comment />
       </div>
     );
   }
