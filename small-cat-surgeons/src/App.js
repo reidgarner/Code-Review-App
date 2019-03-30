@@ -17,34 +17,28 @@ constructor () {
   }
 }
 
-componentDidMount(){
-  axios.get("/api/code/")
-  .then((response) => response.json())
-  .then(movies => {this.setState(movies)})
+componentDidMount() {
+  this.refreshList();
 }
+refreshList = () => {
+  axios
+    .get("http://localhost:8000/api/code/")
+    .then(res => this.setState({ todoList: res.data }))
+    .catch(err => console.log(err));
+};
 
-onSubmitSnippet = (event) => {
-  event.preventDefault();
-  const formData = new FormData(event.target);
-  let newSnippet = {
-    codeSnippet: formData.get('Code')
+onSubmitSnippet = item => {
+  this.toggle();
+  if (item.id) {
+    axios
+      .put(`http://localhost:8000/api/code/${item.id}/`, item)
+      .then(res => this.refreshList());
+    return;
   }
-  return fetch('',{
-    method:'POST',
-    headers:{
-      'Content-Type': "application/json"
-    },
-    body: JSON.stringify(newSnippet)
-  })
-  .then(response => response.json())
-  .then(response => {
-    this.setState({
-      snippets: [...this.state.snippets, response[0]]
-    })
-  })
-}
-
-
+  axios
+    .post("http://localhost:8000/api/code/", item)
+    .then(res => this.refreshList());
+};
 
   render () {
     return (
