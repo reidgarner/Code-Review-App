@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import './App.css';
-import CodeSnippet from './Components/CodeSnippet.js';
-import Comment from './Components/Comment.js';
-import CodeSnippetView from './Components/CodeSnippetView.js';
+import CodeSnippet from './Components/CodeSnippet';
+import Comment from './Components/Comment';
+import CodeSnippetView from './Components/CodeSnippetView';
+import {Route, BrowserRouter as Router} from 'react-router-dom';
 
 class App extends Component {
 
 constructor () {
   super();
   this.state ={
+    snippets: null,
     codeSnippet: '',
     title: '',
-    snippets: null
   }
 }
 
@@ -47,7 +48,7 @@ onSubmitSnippet = (event) => {
       <div className="App">
         <CodeSnippet onSubmitSnippet={this.onSubmitSnippet} />
         <Comment />
-        <CodeSnippetView />
+        {this.state.snippets ? <Route exact path = "/" render= {() => <CodeSnippetView snippets={this.state.snippets} />} /> : null }
       </div>
     );
   }
