@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Comment extends Component {
-  render() {
+const Comment = (props) => {
     return (
-      <div>
-          Comment
+      <div className="commentContainer">
+        <form>
+          <textarea type="text" name="commentBox" placeholder="Comment Here" className="commentInput" />
+          <input value="Submit" type="submit" className="submitButton" />
+        </form>
       </div>
     );
-  }
 }
 
 export default Comment
