@@ -6,7 +6,7 @@ const SnippetWComment = (props) => {
       <div className="snippetWComment">
         <div className="card">
           <div>{props.snippet.title}</div>
-          <div>{props.snippet.</div>
+          <div>{props.snippet.codeSnippet}</div>
         </div>
       </div>
     );
