@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class addSnippet extends Component {
+class CodeSnippet extends Component {
   render() {
     return (
       <div>
-          Add Snippet
+          Add Code Snippet
       </div>
     );
   }
 }
 
-export default addSnippet
+export default CodeSnippet
