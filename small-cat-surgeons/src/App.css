@@ -1,0 +1,25 @@
+.codeInput {
+    width: 50%;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.snippetContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 450px;
+    margin-top: 150px;
+    justify-content: center;
+    
+}
+
+.submitButton {
+    width: 10%;
+    text-align: center;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.App {
+    margin: auto;
+}
