@@ -2,11 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import CodeSnippet from './Components/CodeSnippet.js';
 import Comment from './Components/Comment.js';
-
-
-
-
-
+import CodeSnippetView from './Components/CodeSnippetView.js';
 
 class App extends Component {
 
@@ -14,6 +10,7 @@ constructor () {
   super();
   this.state ={
     codeSnippet: '',
+    title: '',
     snippets: null
   }
 }
@@ -50,6 +47,7 @@ onSubmitSnippet = (event) => {
       <div className="App">
         <CodeSnippet onSubmitSnippet={this.onSubmitSnippet} />
         <Comment />
+        <CodeSnippetView />
       </div>
     );
   }
