@@ -1,5 +1,7 @@
 from django.http import HttpResponse
-from .models import Code
+from rest_framework import viewsets
+from .serializers import CodeSerializer, CommentSerializer
+from .models import Code, Comments
 # Create your views here.
 
 def index(request):
@@ -16,4 +18,12 @@ def results(request, comment_id):
     return HttpResponse(response % comment_id)
 
 def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % code_id)
+    return HttpResponse("You're voting on question %s." % question_id)
+
+class CodeView(viewsets.ModelViewSet):
+  serializer_class = CodeSerializer
+  queryset = Code.objects.all()
+
+class CommentView(viewsets.ModelViewSet):
+  serializer_class = CommentSerializer
+  queryset = Comments.objects.all()
