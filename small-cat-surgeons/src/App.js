@@ -4,6 +4,7 @@ import CodeSnippet from './Components/CodeSnippet';
 import Comment from './Components/Comment';
 import CodeSnippetView from './Components/CodeSnippetView';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
+import axios from "axios";
 
 class App extends Component {
 
@@ -16,8 +17,10 @@ constructor () {
   }
 }
 
-compentDidMount(){
-
+componentDidMount(){
+  axios.get("/api/code/")
+  .then((response) => response.json())
+  .then(movies => {this.setState(movies)})
 }
 
 onSubmitSnippet = (event) => {
